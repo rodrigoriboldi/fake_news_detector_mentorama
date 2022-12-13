@@ -15,6 +15,9 @@ import numpy as np
 import pickle
 import json
 import sklearn
+import os
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 # Configurando página
 st.set_page_config(
@@ -23,19 +26,19 @@ st.set_page_config(
     initial_sidebar_state="collapsed")
 
 # Importando modelo do Bag of Words
-cv = pickle.load(open('app/fake_news_detector_mentorama/modelos/bag_of_words.sav', 'rb'))
+cv = pickle.load(open(dir_path + '/modelos/bag_of_words.sav', 'rb'))
 
 # Importando modelos
-rf_classifier = pickle.load(open('app/fake_news_detector_mentorama/modelos/random_forrest.sav', 'rb'))
-xgb_classifier = pickle.load(open('app/fake_news_detector_mentorama/modelos/xgboost.sav', 'rb'))
-svm_classifier = pickle.load(open('app/fake_news_detector_mentorama/modelos/svm.sav', 'rb'))
-nb_classifier = pickle.load(open('app/fake_news_detector_mentorama/modelos/naive_bayes.sav', 'rb'))
+rf_classifier = pickle.load(open(dir_path + '/modelos/random_forrest.sav', 'rb'))
+xgb_classifier = pickle.load(open(dir_path + '/modelos/xgboost.sav', 'rb'))
+svm_classifier = pickle.load(open(dir_path + '/modelos/svm.sav', 'rb'))
+nb_classifier = pickle.load(open(dir_path + '/modelos/naive_bayes.sav', 'rb'))
 
 # Importando exemplos
-df_validation = pd.read_csv('app/fake_news_detector_mentorama/dados/df_validation.csv').drop(columns = ['Unnamed: 0', 'title'])
+df_validation = pd.read_csv(dir_path + '/dados/df_validation.csv').drop(columns = ['Unnamed: 0', 'title'])
 
 # Importando json com as métricas
-with open('app/fake_news_detector_mentorama/metricas/model_metrics.json', 'r') as openfile:
+with open(dir_path + '/metricas/model_metrics.json', 'r') as openfile:
     
     model_metrics_json = json.load(openfile)
 
