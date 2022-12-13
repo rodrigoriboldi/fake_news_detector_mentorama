@@ -16,6 +16,7 @@ import pickle
 import json
 import sklearn
 import os
+import xgboost
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
