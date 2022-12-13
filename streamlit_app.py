@@ -29,7 +29,7 @@ st.set_page_config(
 cv = pickle.load(open(dir_path + '/modelos/bag_of_words.sav', 'rb'))
 
 # Importando modelos
-rf_classifier = pickle.load(open(dir_path + '/modelos/random_forrest.sav', 'rb'))
+#rf_classifier = pickle.load(open(dir_path + '/modelos/random_forrest.sav', 'rb'))
 xgb_classifier = pickle.load(open(dir_path + '/modelos/xgboost.sav', 'rb'))
 svm_classifier = pickle.load(open(dir_path + '/modelos/svm.sav', 'rb'))
 nb_classifier = pickle.load(open(dir_path + '/modelos/naive_bayes.sav', 'rb'))
@@ -69,12 +69,12 @@ txt = st.text_area('O texto precisa ser em inglês! (Text must be in english)  '
 txt_vectorized = cv.transform(np.array([txt]))
 
 # Classificação do texto inserido
-rf_result = rf_classifier.predict(txt_vectorized)
+#rf_result = rf_classifier.predict(txt_vectorized)
 xgb_result = xgb_classifier.predict(txt_vectorized)
 svm_result = svm_classifier.predict(txt_vectorized)
 nb_result = nb_classifier.predict(txt_vectorized)
 
-rf_result_proba = rf_classifier.predict_proba(txt_vectorized)[0][1]*100
+#rf_result_proba = rf_classifier.predict_proba(txt_vectorized)[0][1]*100
 xgb_result_proba = xgb_classifier.predict_proba(txt_vectorized)[0][1]*100
 svm_result_proba = svm_classifier.predict_proba(txt_vectorized)[0][1]*100
 nb_result_proba = nb_classifier.predict_proba(txt_vectorized)[0][1]*100
@@ -99,10 +99,10 @@ st.subheader('Resultados por classificador')
     
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    if rf_result == 0:
-        st.metric(label = 'Classificador 1', value='Real')
-    else:
-        st.metric(label = 'Classificador 1', value='Fake')
+    #if rf_result == 0:
+    #    st.metric(label = 'Classificador 1', value='Real')
+    #else:
+    #    st.metric(label = 'Classificador 1', value='Fake')
 
 with col2:
     if xgb_result == 0:
@@ -126,7 +126,7 @@ st.write('Probabilidade da notícia ser fake')
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    st.metric(label = 'Classificador 1', value= str(round(rf_result_proba,2)) + '%')
+    #st.metric(label = 'Classificador 1', value= str(round(rf_result_proba,2)) + '%')
 with col2:
     st.metric(label = 'Classificador 2', value= str(round(xgb_result_proba,2)) + '%')
 with col3:
