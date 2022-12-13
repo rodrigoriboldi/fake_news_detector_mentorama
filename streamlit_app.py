@@ -15,6 +15,7 @@ import numpy as np
 import pickle
 import random
 import json
+import sklearn
 
 # Configurando página
 st.set_page_config(
