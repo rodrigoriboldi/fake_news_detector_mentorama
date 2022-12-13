@@ -30,7 +30,7 @@ st.set_page_config(
 cv = pickle.load(open(dir_path + '/modelos/bag_of_words.sav', 'rb'))
 
 # Importando modelos
-#rf_classifier = pickle.load(open(dir_path + '/modelos/random_forrest.sav', 'rb'))
+rf_classifier = pickle.load(open(dir_path + '/modelos/random_forrest.sav', 'rb'))
 xgb_classifier = pickle.load(open(dir_path + '/modelos/xgboost.sav', 'rb'))
 svm_classifier = pickle.load(open(dir_path + '/modelos/svm.sav', 'rb'))
 nb_classifier = pickle.load(open(dir_path + '/modelos/naive_bayes.sav', 'rb'))
@@ -75,7 +75,7 @@ xgb_result = xgb_classifier.predict(txt_vectorized)
 svm_result = svm_classifier.predict(txt_vectorized)
 nb_result = nb_classifier.predict(txt_vectorized)
 
-#rf_result_proba = rf_classifier.predict_proba(txt_vectorized)[0][1]*100
+rf_result_proba = rf_classifier.predict_proba(txt_vectorized)[0][1]*100
 xgb_result_proba = xgb_classifier.predict_proba(txt_vectorized)[0][1]*100
 svm_result_proba = svm_classifier.predict_proba(txt_vectorized)[0][1]*100
 nb_result_proba = nb_classifier.predict_proba(txt_vectorized)[0][1]*100
@@ -179,4 +179,3 @@ with st.expander("Mais detalhes dos classificadores:"):
 st.write('Este é um projeto didático e seus resultados não devem ser utilizados como uma ferramenta de apoio para tomadas de decisões.')
 
 st.caption('Alguns exemplos de notícias falsas: https://libguides.valenciacollege.edu/c.php?g=612299&p=4251645')
-#st.caption('Alguns exemplos de notícias reais: https://www.politico.com/news/2022/11/29/donald-trump-campaign-00071225')
