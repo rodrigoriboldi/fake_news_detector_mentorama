@@ -14,7 +14,6 @@ import pandas as pd
 import numpy as np
 import pickle
 import json
-import sklearn
 
 # Configurando página
 st.set_page_config(
