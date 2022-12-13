@@ -23,16 +23,16 @@ st.set_page_config(
     initial_sidebar_state="collapsed")
 
 # Importando modelo do Bag of Words
-cv = pickle.load(open('modelos/bag_of_words.sav', 'rb'))
+cv = pickle.load(open('rodrigoriboldi/fake_news_detector_mentorama/modelos/bag_of_words.sav', 'rb'))
 
 # Importando modelos
-rf_classifier = pickle.load(open('modelos/random_forrest.sav', 'rb'))
-xgb_classifier = pickle.load(open('modelos/xgboost.sav', 'rb'))
-svm_classifier = pickle.load(open('modelos/svm.sav', 'rb'))
-nb_classifier = pickle.load(open('modelos/naive_bayes.sav', 'rb'))
+rf_classifier = pickle.load(open('rodrigoriboldi/fake_news_detector_mentorama/modelos/random_forrest.sav', 'rb'))
+xgb_classifier = pickle.load(open('rodrigoriboldi/fake_news_detector_mentorama/modelos/xgboost.sav', 'rb'))
+svm_classifier = pickle.load(open('rodrigoriboldi/fake_news_detector_mentorama/modelos/svm.sav', 'rb'))
+nb_classifier = pickle.load(open('rodrigoriboldi/fake_news_detector_mentorama/modelos/naive_bayes.sav', 'rb'))
 
 # Importando exemplos
-df_validation = pd.read_csv('dados/df_validation.csv').drop(columns = ['Unnamed: 0', 'title'])
+df_validation = pd.read_csv('rodrigoriboldi/fake_news_detector_mentorama/dados/df_validation.csv').drop(columns = ['Unnamed: 0', 'title'])
 
 # Titulos e textos
 st.image("https://images.jota.info/wp-content/uploads/2021/12/fake-ga34dcd21f-1920-1-1536x1023.jpg")
@@ -127,7 +127,7 @@ with col4:
     st.metric(label = 'Classificador 4', value= str(round(nb_result_proba,2)) + '%')   
     
 
-with open('metricas/model_metrics.json', 'r') as openfile:
+with open('rodrigoriboldi/fake_news_detector_mentorama/metricas/model_metrics.json', 'r') as openfile:
     
     model_metrics_json = json.load(openfile)
     
