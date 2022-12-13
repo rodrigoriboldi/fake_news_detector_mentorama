@@ -69,7 +69,7 @@ txt = st.text_area('O texto precisa ser em inglês! (Text must be in english)  '
 txt_vectorized = cv.transform(np.array([txt]))
 
 # Classificação do texto inserido
-#rf_result = rf_classifier.predict(txt_vectorized)
+rf_result = rf_classifier.predict(txt_vectorized)
 xgb_result = xgb_classifier.predict(txt_vectorized)
 svm_result = svm_classifier.predict(txt_vectorized)
 nb_result = nb_classifier.predict(txt_vectorized)
@@ -99,10 +99,10 @@ st.subheader('Resultados por classificador')
     
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    #if rf_result == 0:
-    #    st.metric(label = 'Classificador 1', value='Real')
-    #else:
-    #    st.metric(label = 'Classificador 1', value='Fake')
+    if rf_result == 0:
+        st.metric(label = 'Classificador 1', value='Real')
+    else:
+        st.metric(label = 'Classificador 1', value='Fake')
 
 with col2:
     if xgb_result == 0:
@@ -126,7 +126,7 @@ st.write('Probabilidade da notícia ser fake')
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    #st.metric(label = 'Classificador 1', value= str(round(rf_result_proba,2)) + '%')
+    st.metric(label = 'Classificador 1', value= str(round(rf_result_proba,2)) + '%')
 with col2:
     st.metric(label = 'Classificador 2', value= str(round(xgb_result_proba,2)) + '%')
 with col3:
