@@ -13,7 +13,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-import random
 import json
 import sklearn
 
@@ -175,5 +174,3 @@ st.write('Este é um projeto didático e seus resultados não devem ser utilizad
 
 st.caption('Alguns exemplos de notícias falsas: https://libguides.valenciacollege.edu/c.php?g=612299&p=4251645')
 #st.caption('Alguns exemplos de notícias reais: https://www.politico.com/news/2022/11/29/donald-trump-campaign-00071225')
-
-
