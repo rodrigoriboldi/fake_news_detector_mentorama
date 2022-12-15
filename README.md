@@ -52,4 +52,5 @@ Este é um projeto didático e seus resultados não devem ser utilizados como um
 ## Tecnologias Utilizadas
 
 - Python
+- Xgboost
 - Streamlit
