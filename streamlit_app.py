@@ -159,7 +159,7 @@ with st.expander("Mais detalhes dos classificadores:"):
                   Recall:    ' + str(round(model_metrics_json['XGBoost Recall'],2)) + '  \\\n \
                   AUC score: ' + str(round(model_metrics_json['XGBoost AUC score'],2)) + '')
     with col2:
-        st.write('Classificador 2: XGBost \\\n \
+        st.write('Classificador 2: XGBoost \\\n \
                   Accuracy:  ' + str(round(model_metrics_json['SVM Accuracy'],2)) + '  \\\n \
                   Precision: ' + str(round(model_metrics_json['SVM Precision'],2)) + '  \\\n \
                   Recall:    ' + str(round(model_metrics_json['SVM Recall'],2)) + '  \\\n \
